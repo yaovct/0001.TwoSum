@@ -7,16 +7,14 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         map<int, int> hmap;
-        for(int i=0; i<nums.size(); i++) {
-        	hmap[nums[i]] = i;
-        }
       	for(int i=0; i<nums.size(); i++) {
       		int complement = target - nums[i];
       		if(hmap.find(complement) != hmap.end()) {
-      			int arr[2] = {i, hmap[complement]};
+      			int arr[2] = {hmap[complement], i};
       			vector<int> result(arr, arr+2);
       			return result;
       		}
+      		hmap[nums[i]] = i;
       	}
         throw runtime_error("no answer found!");
     }

@@ -7,14 +7,12 @@ class Solution {
      */
     function twoSum($nums, $target) {
 	    $arr = Array();
-	    for($i=0; $i<count($nums); $i++) {
-	    	$arr[$nums[$i]] = $i;
-	    }
       for($i=0; $i<count($nums); $i++) {
       	$complement = $target - $nums[$i];
       	if(array_key_exists($complement, $arr)) {
-      		return [$i, $arr[$complement]];
+      		return [$arr[$complement], $i];
         }
+        $arr[$nums[$i]] = $i;
       }
       return "no answer found!";
     }

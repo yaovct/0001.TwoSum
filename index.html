@@ -7,14 +7,12 @@
  */
 var twoSum = function(nums, target) {
 	var arr = [];
-  for(var i=0; i<nums.length-1; i++) {
-  	arr[nums[i]] = i;
-  }
 	for(var i=0; i<nums.length; i++) {
 		var complement = target - nums[i];
 		if(complement in arr) {
-			return new Array(i, arr[complement]);
+			return new Array(arr[complement], i);
 		}
+		arr[nums[i]] = i;
 	}
   return "no answer found!";
 };

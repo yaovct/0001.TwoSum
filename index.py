@@ -7,11 +7,10 @@ class Solution(object):
         """
         hashmap ={}
         for i in range(0, len(nums)):
-        	hashmap[nums[i]] = i
-        for i in range(0, len(nums)):
         	complement = target - nums[i]
         	if complement in hashmap:
-        		return [i, hashmap[complement]]
+        		return [hashmap[complement], i]
+        	hashmap[nums[i]] = i
         return "no anwser found!"
 
 my_test = Solution()
