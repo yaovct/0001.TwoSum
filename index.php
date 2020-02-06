@@ -6,12 +6,15 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-      for($i=0; $i<count($nums)-1; $i++) {
-          for($j=$i+1; $j<count($nums); $j++) {
-              if($nums[$i]+$nums[$j] == $target) {
-                  return [$i, $j];
-              }
-          }
+	    $arr = Array();
+	    for($i=0; $i<count($nums); $i++) {
+	    	$arr[$nums[$i]] = $i;
+	    }
+      for($i=0; $i<count($nums); $i++) {
+      	$complement = $target - $nums[$i];
+      	if(array_key_exists($complement, $arr)) {
+      		return [$i, $arr[$complement]];
+        }
       }
       return "no answer found!";
     }

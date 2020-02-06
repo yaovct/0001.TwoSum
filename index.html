@@ -6,14 +6,17 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    for(var i=0; i<nums.length-1; i++) {
-    	for(var j=i+1; j<nums.length; j++) {
-    		if(nums[i] + nums[j] == target) {
-    			return new Array(i, j);
-    		}
-    	}
-    }
-    return "no answer found!";
+	var arr = [];
+  for(var i=0; i<nums.length-1; i++) {
+  	arr[nums[i]] = i;
+  }
+	for(var i=0; i<nums.length; i++) {
+		var complement = target - nums[i];
+		if(complement in arr) {
+			return new Array(i, arr[complement]);
+		}
+	}
+  return "no answer found!";
 };
 alert(twoSum([2,7,11,15],9));
 </script>
